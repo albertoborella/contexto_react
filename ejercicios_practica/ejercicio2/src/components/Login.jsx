@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export function Login() {
   const { setUser } = useContext(PruebaContext);
+  const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -12,14 +13,15 @@ export function Login() {
       email: e.target.email.value,
     };
     setUser(obj);
+
+      if(setUser) {
+         navigate("/")
+       }
   }
-
-  const navigate = useNavigate();
-
-    if(setUser) {
-        navigate('/')
-    }
-
+    
+    
+    
+    
   return (
     <>
       <h1>Login</h1>
